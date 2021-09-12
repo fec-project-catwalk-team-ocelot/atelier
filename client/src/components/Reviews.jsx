@@ -1,12 +1,7 @@
 import React from 'react';
-import StarRating from './Review-Components/StarRating.jsx';
 
-function Reviews({ productId }) {
-  return (
-    <div>
-      <StarRating productId={productId} />
-    </div>
-  );
+function Reviews() {
+  return <div>Reviews</div>;
 }
 
 export default Reviews;
