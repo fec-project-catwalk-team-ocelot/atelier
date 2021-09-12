@@ -5,6 +5,9 @@
   overflow: hidden;
   height: 75vh;
 }
+.carousel-item {
+  cursor: zoom-in;
+}
 #mainImage .carousel-indicators {
   position: absolute;
   width: 10%;
@@ -79,7 +82,7 @@
   margin-left: 10px;
 }
 
-/* Overview: fullscreen main image  */
+/* Overview: Fullscreen mode  */
 .fullscreen-icon {
   display: flex;
   position: absolute;
@@ -92,6 +95,14 @@
 
 .showFullscreen .carousel-item img {
   height: calc(100vh - 5em) !important;
+}
+
+.showFullscreen .carousel-item {
+  cursor: crosshair;
+}
+
+.showFullscreen .carousel-item .zoomed {
+  transform: scale(2.5);
 }
 
 /* Navbar */

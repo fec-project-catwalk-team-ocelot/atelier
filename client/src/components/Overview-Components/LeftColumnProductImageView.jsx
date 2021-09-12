@@ -1,13 +1,26 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { BiFullscreen } from 'react-icons/bi';
 
 function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullscreenToggle }) {
-  // Conditional Rendering
   let renderMainImages;
+
+  function handleFullscreen() {
+    setFullscreenToggle(!fullscreenToggle);
+  }
+
   if (selectedStyle.photos) {
     renderMainImages = selectedStyle.photos.map((photo, idx) => (
-      <MainImages key={idx} idx={idx} photoUrl={photo.url} altText={selectedStyle.name} />
+      <MainImages
+        key={idx}
+        idx={idx}
+        photoUrl={photo.url}
+        altText={selectedStyle.name}
+        handleFullscreen={handleFullscreen}
+        fullscreenToggle={fullscreenToggle}
+      />
     ));
   } else {
     renderMainImages = '';
@@ -27,12 +40,11 @@ function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullsc
     renderMainThumbnails = '';
   }
 
-  function handleFullscreen() {
-    setFullscreenToggle(!fullscreenToggle);
-  }
-
   return (
-    // TODO: add mouseover zoom for carousel
+    // TODO: click image in fullscreen view will zoom 2.5x
+    // TODO: in zoom mode, image should pan with mouse
+    // TODO: mouse icon should be '-',no arrows or indicators
+    // FIXME: on expanded view, thumbnails become icons
     <div className={`${fullscreenToggle ? 'col-lg-12 showFullscreen' : 'col-lg-8'}`}>
       <div id="mainImage" className="carousel slide carousel-fade bg-light" data-interval="false" data-keyboard="true">
         <div className="carousel-inner">
@@ -59,10 +71,27 @@ function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullsc
 
 // Helper Render Functions
 
-function MainImages({ photoUrl, altText, idx }) {
+function MainImages({ photoUrl, altText, idx, handleFullscreen, fullscreenToggle }) {
+  const [zoom, setZoom] = useState(false);
+  const [position, setPosition] = useState([]);
+  function handleZoom() {
+    setZoom(!zoom);
+  }
+
+  function getMouseLocation(e) {
+    // need to get the mouse location on the image hover
+    setPosition([Number(e.clientX), Number(e.clientY)]);
+  }
+
   return (
     <div className={`carousel-item ${idx === 0 ? 'active' : ''}`}>
-      <img src={photoUrl} className="d-block w-100" alt={altText} />
+      <img
+        onClick={fullscreenToggle ? handleZoom : handleFullscreen}
+        src={photoUrl}
+        className={`d-block w-100 ${zoom ? 'zoomed' : ''}`}
+        alt={altText}
+        onMouseMove={zoom ? getMouseLocation : () => {}}
+      />
     </div>
   );
 }
