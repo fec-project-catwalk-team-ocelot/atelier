@@ -10,6 +10,7 @@ function Overview({ productId }) {
   const [productInfo, setProductInfo] = useState({});
   const [productStyles, setProductStyles] = useState({});
   const [selectedStyle, setSelectedStyle] = useState({});
+  const [fullscreenToggle, setFullscreenToggle] = useState(false);
 
   useEffect(() => {
     axios.get(`/api/products/${productId}`)
@@ -36,9 +37,13 @@ function Overview({ productId }) {
   return (
     <div>
       <div className="container-fluid mb-5 px-0">
-        <div className="row">
+        <div className="row me-0">
           {/* LEFT COLUMN Product image carousel */}
-          <LeftColumnProductImageView selectedStyle={selectedStyle} />
+          <LeftColumnProductImageView
+            selectedStyle={selectedStyle}
+            fullscreenToggle={fullscreenToggle}
+            setFullscreenToggle={setFullscreenToggle}
+          />
           {/* RIGHT COLUMN Product Information side */}
           <RightColumnOverview
             productStyles={productStyles}
@@ -46,6 +51,7 @@ function Overview({ productId }) {
             selectedStyle={selectedStyle}
             setSelectedStyle={setSelectedStyle}
             productId={productId}
+            fullscreenToggle={fullscreenToggle}
           />
         </div>
       </div>

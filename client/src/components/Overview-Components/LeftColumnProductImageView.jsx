@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { BiFullscreen } from 'react-icons/bi';
 
-function LeftColumnProductImageView(props) {
-  const { selectedStyle } = props;
-
+function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullscreenToggle }) {
   // Conditional Rendering
   let renderMainImages;
   if (selectedStyle.photos) {
@@ -28,22 +27,28 @@ function LeftColumnProductImageView(props) {
     renderMainThumbnails = '';
   }
 
+  function handleFullscreen() {
+    setFullscreenToggle(!fullscreenToggle);
+  }
+
   return (
-    <div className="col-lg-8">
-      <div id="mainImageIndicators" className="carousel slide carousel-fade bg-light">
+    // TODO: add mouseover zoom for carousel
+    <div className={`${fullscreenToggle ? 'col-lg-12 showFullscreen' : 'col-lg-8'}`}>
+      <div id="mainImage" className="carousel slide carousel-fade bg-light" data-interval="false" data-keyboard="true">
         <div className="carousel-inner">
-          {/* TODO: implement expanded view and collapsed view */}
-          {/* TODO: add a zoom feature on photos */}
           {renderMainImages}
         </div>
-        <div className="carousel-indicators d-inline-flex flex-column mb-1">
+        <button type="button" className="fullscreen-icon" onClick={handleFullscreen}>
+          <BiFullscreen size="2em" />
+        </button>
+        <div className="carousel-indicators d-flex flex-column justify-content-start">
           {renderMainThumbnails}
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#mainImageIndicators" data-bs-slide="prev">
+        <button className="carousel-control-prev" type="button" data-bs-target="#mainImage" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="visually-hidden">Previous</span>
         </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#mainImageIndicators" data-bs-slide="next">
+        <button className="carousel-control-next" type="button" data-bs-target="#mainImage" data-bs-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
@@ -68,7 +73,7 @@ function MainThumbnails({ photoUrl, altText, idx }) {
       src={photoUrl}
       className="d-block w-100"
       alt={altText}
-      data-bs-target="#mainImageIndicators"
+      data-bs-target="#mainImage"
       data-bs-slide-to={idx}
       aria-label={`Slide ${idx + 1}`}
       className={`my-3 ${idx === 0 ? 'active' : ''}`}
