@@ -1,32 +1,8 @@
 import React from 'react';
-import StyleSelectorView from './StyleSelectorView.jsx';
 
-function RightColumnOverview(props) {
-  const { productStyles, productInfo, selectedStyle } = props;
-
+function AddtoCartView() {
   return (
-    <div className="col-lg-4 pe-5">
-      {/* Review snippent */}
-      {/* TODO: import star rating and implement */}
-      {/* TODO: if no reviews, should be hidden */}
-      <div className="reviewSnippet my-3">
-        <span>*****   </span>
-        <span><a href="#" className="text-dark">Read all reviews</a></span>
-      </div>
-      {/*  Category */}
-      <div className="text-uppercase">
-        {productInfo.category}
-      </div>
-      {/* Product Name */}
-      <div className="fs-1 fw-bold mb-3">
-        {productInfo.name}
-      </div>
-      {/* Product Price */}
-      {/* TODO: if sku is discounted, show sale price in red with original price strikethrough */}
-      <div className="mb-3">
-        ${selectedStyle.original_price}
-      </div>
-      <StyleSelectorView productStyles={productStyles} selectedStyle={selectedStyle} />
+    <div>
       {/* Select Size and Quantity */}
       <div className="row" id="sizeQtySelectors">
         <div className="col-8">
@@ -60,21 +36,20 @@ function RightColumnOverview(props) {
       {/* Add to Cart and Favorite */}
       <div className="row">
         {/* TODO:  If the default ‘Select Size’ is currently selected:
-          Clicking this button should open the size dropdown, and a message
-          should appear above the dropdown stating “Please select size”. */}
+        Clicking this button should open the size dropdown, and a message
+        should appear above the dropdown stating “Please select size”. */}
         {/* TODO:  If there is no stock: This button should be hidden */}
-        {/* TODO:  If both a valid size and valid quantity are selected:
-          Clicking this button will add the product to the user’s cart.*/}
+        {/* TODO:  If both a valid size and valid quantity are selected: */}
+        {/* Clicking this button will add the product to the user’s cart. */}
         <div className="col-10">
           <button type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>
         <div className="col-2">
-        <button type="button" className="btn btn-outline-dark w-100 p-3">*</button>
+          <button type="button" className="btn btn-outline-dark w-100 p-3">*</button>
         </div>
       </div>
-      {/* TODO: not on mockup, but in business doc: product overview and share on social media */}
     </div>
   );
 }
 
-export default RightColumnOverview;
+export default AddtoCartView;

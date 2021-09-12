@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ProductDetailView({ productInfo }) {
+function ProductFeatureView({ productInfo }) {
   let renderFeatures;
   if (productInfo.features) {
     renderFeatures = productInfo.features.map((feature, idx) => (
@@ -37,4 +37,4 @@ function FeaturesList({ feature }) {
   );
 }
 
-export default ProductDetailView;
+export default ProductFeatureView;

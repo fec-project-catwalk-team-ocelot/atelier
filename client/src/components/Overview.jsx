@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import LeftColumnProductImageView from './overview_components/LeftColumnProductImageView.jsx';
-import RightColumnOverview from './overview_components/RightColumnOverview.jsx';
-import ProductDetailView from './overview_components/ProductDetailView.jsx';
+import LeftColumnProductImageView from './Overview-Components/LeftColumnProductImageView.jsx';
+import RightColumnOverview from './Overview-Components/RightColumnOverview.jsx';
+import ProductFeatureView from './Overview-Components/ProductFeatureView.jsx';
 
 function Overview({ productId }) {
   const [productInfo, setProductInfo] = useState({});
@@ -36,9 +36,9 @@ function Overview({ productId }) {
     <div>
       <div className="container-fluid mb-5 px-0">
         <div className="row">
-          {/* Product image carousel */}
+          {/* LEFT COLUMN Product image carousel */}
           <LeftColumnProductImageView selectedStyle={selectedStyle} />
-          {/* Product Information side */}
+          {/* RIGHT COLUMN Product Information side */}
           <RightColumnOverview
             productStyles={productStyles}
             productInfo={productInfo}
@@ -47,10 +47,8 @@ function Overview({ productId }) {
         </div>
       </div>
       <div className="container mb-5">
-        {/* Product info row */}
-        <ProductDetailView
-          productInfo={productInfo}
-        />
+        {/* BOTTOM ROW Product info row */}
+        <ProductFeatureView productInfo={productInfo} />
       </div>
     </div>
   );
