@@ -1,6 +1,19 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 function ProductDetailView({ productInfo, selectedStyle }) {
+  let renderPrice;
+  if (selectedStyle.sale_price) {
+    renderPrice = (
+      <div>
+        <span className="text-danger me-3">{selectedStyle.sale_price}</span>
+        <del>{selectedStyle.original_price}</del>
+      </div>
+    );
+  } else {
+    renderPrice = `$${selectedStyle.original_price}`;
+  }
+
   return (
     <div>
       {/* Review snippent */}
@@ -19,9 +32,8 @@ function ProductDetailView({ productInfo, selectedStyle }) {
         {productInfo.name}
       </div>
       {/* Product Price */}
-      {/* TODO: if sku is discounted, show sale price in red with original price strikethrough */}
       <div className="mb-3">
-        ${selectedStyle.original_price}
+        {renderPrice}
       </div>
     </div>
   );

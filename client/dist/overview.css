@@ -35,21 +35,29 @@
 
 /* Overview: style selectors */
 #style-thumbnails img {
-  width: 80px;
+  width: 60px;
   border-radius: 50%;
-  height: 80px;
+  height: 60px;
   object-fit: cover;
   border: 2px solid black;
 }
-
-#style-thumbnails .d-block {
+#style-thumbnails svg {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  left: 50px;
+}
+#style-thumbnails button {
+  position: relative;
+  background: none;
+  border: none;
+  display: flex;
   flex-basis: 25%;
 }
 
 #featureList ul {
   list-style: none;
 }
-
 
 #featureList ul li:before {
   content: '✓';

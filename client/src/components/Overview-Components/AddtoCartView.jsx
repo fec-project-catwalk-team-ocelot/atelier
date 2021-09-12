@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
 import _, { map } from 'underscore';
+import { BsStar } from 'react-icons/bs';
 
 function AddtoCartView({ selectedStyle }) {
   const { skus } = selectedStyle;
@@ -38,12 +40,12 @@ function AddtoCartView({ selectedStyle }) {
 
   // CONDITIONAL RENDERS
   if (validSkus !== []) {
-    renderDefaultSizeOption = <option selected="selected">SELECT SIZE</option>;
+    renderDefaultSizeOption = <option value="DEFAULT">SELECT SIZE</option>;
     renderSizes = _.map(validSkus, (sku) => (
       <option key={sku.id} value={sku.size}>{sku.size}</option>
     ));
   } else {
-    renderDefaultSizeOption = <option selected="selected" disabled>OUT OF STOCK</option>;
+    renderDefaultSizeOption = <option value="DEFAULT" disabled>OUT OF STOCK</option>;
   }
 
   if (quantity !== 0) {
@@ -77,10 +79,6 @@ function AddtoCartView({ selectedStyle }) {
           </div>
         </div>
         <div className="col-4">
-          {/* TODO: Dynamically render dropdown */}
-          {/* TODO: 1 - max, max = 15 || max stock count for style */}
-          {/* TODO: no size selected, render '-' and  disable */}
-          {/* TODO: size selected, default to 1 */}
           <div className="input-group mb-3">
             <select className="form-select w-100 p-3 border border-dark" defaultValue="DEFAULT">
               {renderDefaultQtyOption}
@@ -101,7 +99,7 @@ function AddtoCartView({ selectedStyle }) {
           <button type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>
         <div className="col-2">
-          <button type="button" className="btn btn-outline-dark w-100 p-3">*</button>
+          <button type="button" className="btn btn-outline-dark w-100 p-3"><BsStar /></button>
         </div>
       </div>
     </div>

@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import StyleSelectorView from './StyleSelectorView.jsx';
 import ProductDetailView from './ProductDetailView.jsx';
 import AddToCartView from './AddtoCartView.jsx';
 
-function RightColumnOverview(props) {
-  const { productStyles, productInfo, selectedStyle, setSelectedStyle } = props;
-
+function RightColumnOverview({
+  productStyles, productInfo, selectedStyle, setSelectedStyle,
+}) {
   return (
     <div className="col-lg-4 pe-5">
       <ProductDetailView productInfo={productInfo} selectedStyle={selectedStyle} />

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 function LeftColumnProductImageView(props) {
@@ -29,10 +30,10 @@ function LeftColumnProductImageView(props) {
 
   return (
     <div className="col-lg-8">
-      <div id="mainImageIndicators" className="carousel slide carousel-fade bg-light" data-bs-ride="carousel" data-interval="5000">
+      <div id="mainImageIndicators" className="carousel slide carousel-fade bg-light">
         <div className="carousel-inner">
-        {/* TODO: implement expanded view and collapsed view */}
-        {/* TODO: add a zoom feature on photos */}
+          {/* TODO: implement expanded view and collapsed view */}
+          {/* TODO: add a zoom feature on photos */}
           {renderMainImages}
         </div>
         <div className="carousel-indicators d-inline-flex flex-column mb-1">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import LeftColumnProductImageView from './Overview-Components/LeftColumnProductImageView.jsx';
@@ -54,5 +55,9 @@ function Overview({ productId }) {
     </div>
   );
 }
+
+Overview.propTypes = {
+  productId: PropTypes.number.isRequired,
+};
 
 export default Overview;
