@@ -45,6 +45,7 @@ function Overview({ productId }) {
             productInfo={productInfo}
             selectedStyle={selectedStyle}
             setSelectedStyle={setSelectedStyle}
+            productId={productId}
           />
         </div>
       </div>

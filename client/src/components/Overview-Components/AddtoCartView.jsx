@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
-import _, { map } from 'underscore';
+import _ from 'underscore';
 import { BsStar } from 'react-icons/bs';
 
 function AddtoCartView({ selectedStyle }) {
@@ -9,11 +10,13 @@ function AddtoCartView({ selectedStyle }) {
   let renderDefaultSizeOption;
   let renderQty;
   let renderDefaultQtyOption;
+  // let renderSelectSizeMessage;
 
   // STATE DECLARATION
   const [validSkus, setValidSkus] = useState([]);
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState('DEFAULT');
   const [quantity, setQuantity] = useState(0);
+  // const [isSizeSelected, setIsSizeSelected] = useState(false);
 
   // LIFECYCLE METHODS
   useEffect(() => {
@@ -66,6 +69,12 @@ function AddtoCartView({ selectedStyle }) {
     setSelectedSize(e.target.value);
   }
 
+  function handleAddCart() {
+    if (selectedSize === 'DEFAULT') {
+      console.log('no size selected');
+    }
+  }
+
   return (
     <div>
       {/* Select Size and Quantity */}
@@ -92,11 +101,10 @@ function AddtoCartView({ selectedStyle }) {
         {/* TODO:  If the default ‘Select Size’ is currently selected:
         Clicking this button should open the size dropdown, and a message
         should appear above the dropdown stating “Please select size”. */}
-        {/* TODO:  If there is no stock: This button should be hidden */}
         {/* TODO:  If both a valid size and valid quantity are selected: */}
         {/* Clicking this button will add the product to the user’s cart. */}
-        <div className="col-10">
-          <button type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
+        <div className={`col-10 ${validSkus === [] ? 'd-none' : ''}`}>
+          <button onClick={handleAddCart} type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>
         <div className="col-2">
           <button type="button" className="btn btn-outline-dark w-100 p-3"><BsStar /></button>

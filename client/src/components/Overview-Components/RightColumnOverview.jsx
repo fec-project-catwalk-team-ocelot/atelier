@@ -5,11 +5,15 @@ import ProductDetailView from './ProductDetailView.jsx';
 import AddToCartView from './AddtoCartView.jsx';
 
 function RightColumnOverview({
-  productStyles, productInfo, selectedStyle, setSelectedStyle,
+  productStyles, productInfo, selectedStyle, setSelectedStyle, productId,
 }) {
   return (
     <div className="col-lg-4 pe-5">
-      <ProductDetailView productInfo={productInfo} selectedStyle={selectedStyle} />
+      <ProductDetailView
+        productInfo={productInfo}
+        selectedStyle={selectedStyle}
+        productId={productId}
+      />
       <StyleSelectorView
         productStyles={productStyles}
         selectedStyle={selectedStyle}

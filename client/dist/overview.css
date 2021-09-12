@@ -64,3 +64,15 @@
   font-size: 1.75rem;
   margin-right: 1rem;
 }
+
+.reviewSnippet svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+.reviewSnippet .star-container {
+  padding: 1px !important;
+}
+.reviewSnippet .ratingLink {
+  margin-top: 4px;
+  margin-left: 10px;
+}

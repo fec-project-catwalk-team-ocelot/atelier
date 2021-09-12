@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import StarRating from '../Review-Components/StarRating.jsx';
 
-function ProductDetailView({ productInfo, selectedStyle }) {
+function ProductDetailView({ productInfo, selectedStyle, productId }) {
   let renderPrice;
   if (selectedStyle.sale_price) {
     renderPrice = (
@@ -17,11 +18,10 @@ function ProductDetailView({ productInfo, selectedStyle }) {
   return (
     <div>
       {/* Review snippent */}
-      {/* TODO: import star rating and implement */}
       {/* TODO: if no reviews, should be hidden */}
-      <div className="reviewSnippet my-3">
-        <span>*****   </span>
-        <span><a className="text-dark">Read all reviews</a></span>
+      <div className="reviewSnippet my-3 d-flex">
+        <span><StarRating productId={productId} /></span>
+        <span className="ratingLink"><a className="text-dark">Read all reviews</a></span>
       </div>
       {/*  Category */}
       <div className="text-uppercase">
