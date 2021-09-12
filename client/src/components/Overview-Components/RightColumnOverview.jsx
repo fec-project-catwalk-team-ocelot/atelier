@@ -4,13 +4,17 @@ import ProductDetailView from './ProductDetailView.jsx';
 import AddToCartView from './AddtoCartView.jsx';
 
 function RightColumnOverview(props) {
-  const { productStyles, productInfo, selectedStyle } = props;
+  const { productStyles, productInfo, selectedStyle, setSelectedStyle } = props;
 
   return (
     <div className="col-lg-4 pe-5">
       <ProductDetailView productInfo={productInfo} selectedStyle={selectedStyle} />
-      <StyleSelectorView productStyles={productStyles} selectedStyle={selectedStyle} />
-      <AddToCartView />
+      <StyleSelectorView
+        productStyles={productStyles}
+        selectedStyle={selectedStyle}
+        setSelectedStyle={setSelectedStyle}
+      />
+      <AddToCartView selectedStyle={selectedStyle} />
       {/* TODO: not on mockup, but in business doc: product overview and share on social media */}
     </div>
   );

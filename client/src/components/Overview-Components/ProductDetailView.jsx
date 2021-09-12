@@ -8,7 +8,7 @@ function ProductDetailView({ productInfo, selectedStyle }) {
       {/* TODO: if no reviews, should be hidden */}
       <div className="reviewSnippet my-3">
         <span>*****   </span>
-        <span><a href="#" className="text-dark">Read all reviews</a></span>
+        <span><a className="text-dark">Read all reviews</a></span>
       </div>
       {/*  Category */}
       <div className="text-uppercase">

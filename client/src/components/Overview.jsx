@@ -43,6 +43,7 @@ function Overview({ productId }) {
             productStyles={productStyles}
             productInfo={productInfo}
             selectedStyle={selectedStyle}
+            setSelectedStyle={setSelectedStyle}
           />
         </div>
       </div>
