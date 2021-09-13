@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import Answer from './Answer.jsx';
 
+const AnswersList = ({ answers }) => {
+  answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
-const AnswersList = ({ answers }) => (
-  <div>
-    {answers.map((answer) => (
-      <Answer answer={answer} key={answer.answer_id}/>
-    ))}
-  </div>
-);
+  return (
+    <div>
+      <ul>
+        {answers.filter((answer, index) => (
+          index < 1
+        )).map((answer) => (
+          <div>
+            <Answer answer={answer} key={answer.answer_id} />
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default AnswersList;

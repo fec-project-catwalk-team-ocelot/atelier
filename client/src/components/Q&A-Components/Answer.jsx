@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const Answer = ({ answer }) => (
   <div>
-   <span>
-     {`A: ${answer.body}`}
-   </span>
+    <span>
+      {`A: ${answer.body}`}
+    </span>
   </div>
 );
 

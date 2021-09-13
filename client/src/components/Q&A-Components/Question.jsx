@@ -10,7 +10,7 @@ const Question = ({ question }) => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
       .then((res) => {
         if (res.data.results.length) {
-          console.log(res.data.results);
+          // console.log(res.data.results);
           setAnswers(res.data.results);
           setCurrentAnswers(res.data.results);
         }
@@ -22,12 +22,23 @@ const Question = ({ question }) => {
   }, []);
 
   return (
-    <div>
-      <span>
-        {`Q: ${question.question_body}`}
-      </span>
+    <>
+      <div>
+        <span>
+          {`Q: ${question.question_body}`}
+        </span>
+        <div>
+          <span
+            className="helpful"
+          >
+            Helpful? Yes
+          </span>
+          <span>{'  |  '}</span>
+          <span>Add Answer</span>
+        </div>
+      </div>
       <AnswersList answers={currentAnswers} />
-    </div>
+    </>
   );
 };
 

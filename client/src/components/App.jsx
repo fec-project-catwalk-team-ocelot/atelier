@@ -8,7 +8,7 @@ import Reviews from './Reviews.jsx';
 import axios from 'axios';
 
 function App() {
-  const [productId, setProductId] = useState(42366);
+  const [productId, setProductId] = useState(42367);
   return (
     <div>
       <Overview productId={productId} />

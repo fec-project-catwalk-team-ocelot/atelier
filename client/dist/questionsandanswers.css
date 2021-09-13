@@ -1,7 +1,42 @@
-.questions-list {
+/* .questions-list {
   height: 400px;
   width: 80%;
   overflow: hidden;
   overflow-y: scroll;
   margin: auto;
 }
+
+.q-a-title {
+  font-size: var(--title-size);
+  color: var(--title-color);
+  padding: 10px;
+  padding-top: 35px;
+}
+
+.more-answers-button {
+  font-size: 12px;
+}
+
+.answer-list {
+  height: 200px;
+  width: 50%;
+  overflow: hidden;
+  overflow-y: scroll;
+} */
+
+.search-bar {
+  width: 500px;
+  height: 28px;
+  /* border-radius: 2em; */
+}
+
+/* .add-answer:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.helpful:hover {
+  cursor: pointer;
+  color: rgb(56, 205, 121);
+  font-weight: bold;
+} */
