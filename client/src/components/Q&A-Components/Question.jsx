@@ -23,15 +23,38 @@ const Question = ({ question }) => {
     fetchAnswers();
   }, []);
 
+  const handleHelpClick = () => {
+    if (!voted) {
+      setVoted((vote) => !vote);
+      setHelpful((helped) => helped + 1);
+      axios.put(
+        `/api/qa/questions/${question.question_id}/helpful`,
+        {
+          question_helpfulness: helpful,
+        },
+        // {
+        //   headers: options.headers,
+        // },
+      )
+        .then(() => {
+
+        })
+        .catch((err) => {
+          Promise.reject(err);
+        });
+    }
+  };
+
   return (
     <>
-      <div>
-        <span>{`Q: ${question.question_body}`}</span>
+      <div className="q-entry">
+        <span className="q-body">{`Q: ${question.question_body}`}</span>
         <div>
           <span
             className="helpful"
+            onClick={handleHelpClick}
           >
-            Helpful? Yes
+            {voted ? `You and ${helpful} others thought this was helpful` : ` Helpful? Yes: ${helpful}`}
           </span>
           <span>{'  |  '}</span>
           <span>Add Answer</span>

@@ -54,12 +54,13 @@ function QuestionsAndAnswers({ productId }) {
       />
       <button
         type="button"
+        className="btn btn-secondary more-answers-button"
         onClick={handleMoreQuestions}
       >
         {moreQuestions ? 'HIDE QUESTIONS' : 'MORE ANSWERED QUESTIONS'}
       </button>
 
-      <button type="button">ADD A QUESTION +</button>
+      <button type="button" className="btn btn-secondary add-a-question-button">ADD A QUESTION +</button>
     </div>
   );
 }

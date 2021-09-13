@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Answer = ({ answer }) => (
-  <div>
+  <div className="a-entry">
     <span>
       {`A: ${answer.body}`}
     </span>

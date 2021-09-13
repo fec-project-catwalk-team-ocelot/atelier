@@ -17,19 +17,21 @@ const QuestionsList = ({ questions, moreQuestions, search, searchTerm }) => {
     sortedQuestions = filteredQuestions.filter((question) => (
       question.question_body.toLowerCase().includes(searchTerm.toLowerCase()) ? question : null
     ));
-    console.log(searchTerm);
-    console.log(sortedQuestions);
+    // console.log(searchTerm);
+    // console.log(sortedQuestions);
   }
 
   if (moreQuestions) {
     return (
       <div>
-        <ul>
+        <ul className="questions-list">
           {filteredQuestions.map((question) => (
-            <Question
-              key={question.question_id}
-              question={question}
-            />
+            <div key={question.question_id}>
+              <Question
+                key={question.question_id}
+                question={question}
+              />
+            </div>
           ))}
         </ul>
       </div>
@@ -38,20 +40,26 @@ const QuestionsList = ({ questions, moreQuestions, search, searchTerm }) => {
   if (search) {
     return (
       <div>
-        <ul>
-          {sortedQuestions.map((question) => (
-            <Question
-              key={question.question_id}
-              question={question}
-            />
-          ))}
+        <ul className="questions-list">
+          {sortedQuestions.length === 0
+            ? (
+              // eslint-disable-next-line max-len
+              <span>Hmm, no matches. To get an answer, try different keywords or post your question to the community.</span>
+            )
+            : sortedQuestions.map((question) => (
+              <Question
+                key={question.question_id}
+                question={question}
+              />
+            ))
+          }
         </ul>
       </div>
     );
   }
   return (
     <div>
-      <ul>
+      <ul className="questions-list">
         {filteredQuestions.filter((question, index) => (
           index < 2
         )).map((question) => (

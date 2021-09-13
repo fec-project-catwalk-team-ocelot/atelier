@@ -6,7 +6,7 @@ const AnswersList = ({ answers }) => {
 
   return (
     <div>
-      <ul>
+      <ul className="answer-list">
         {answers.filter((answer, index) => (
           index < 1
         )).map((answer) => (
