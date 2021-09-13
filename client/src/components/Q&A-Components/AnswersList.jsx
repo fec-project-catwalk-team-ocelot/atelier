@@ -10,7 +10,7 @@ const AnswersList = ({ answers }) => {
         {answers.filter((answer, index) => (
           index < 1
         )).map((answer) => (
-          <div>
+          <div key={answer.answer_id}>
             <Answer answer={answer} key={answer.answer_id} />
           </div>
         ))}

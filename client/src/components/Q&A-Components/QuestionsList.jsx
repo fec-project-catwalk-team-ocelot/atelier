@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Question from './Question.jsx';
 
 // eslint-disable-next-line react/prop-types
-const QuestionsList = ({ questions, moreQuestions }) => {
+const QuestionsList = ({ questions, moreQuestions, search, searchTerm }) => {
   questions.sort((a, b) => b.helpfulness - a.helpfulness);
 
   const filteredQuestions = [];
@@ -12,9 +12,14 @@ const QuestionsList = ({ questions, moreQuestions }) => {
     }
   }
 
-  // if (search) {
-
-  // }
+  let sortedQuestions = filteredQuestions;
+  if (search) {
+    sortedQuestions = filteredQuestions.filter((question) => (
+      question.question_body.toLowerCase().includes(searchTerm.toLowerCase()) ? question : null
+    ));
+    console.log(searchTerm);
+    console.log(sortedQuestions);
+  }
 
   if (moreQuestions) {
     return (
@@ -30,16 +35,32 @@ const QuestionsList = ({ questions, moreQuestions }) => {
       </div>
     );
   }
+  if (search) {
+    return (
+      <div>
+        <ul>
+          {sortedQuestions.map((question) => (
+            <Question
+              key={question.question_id}
+              question={question}
+            />
+          ))}
+        </ul>
+      </div>
+    );
+  }
   return (
     <div>
       <ul>
         {filteredQuestions.filter((question, index) => (
           index < 2
         )).map((question) => (
-          <Question
-            key={question.question_id}
-            question={question}
-          />
+          <div key={question.question_id}>
+            <Question
+              key={question.question_id}
+              question={question}
+            />
+          </div>
         ))}
       </ul>
     </div>

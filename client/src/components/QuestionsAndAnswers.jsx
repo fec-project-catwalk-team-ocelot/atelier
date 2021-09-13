@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import QuestionsForm from './Q&A-Components/QuestionsForm.jsx';
+
+import SearchQuestion from './Q&A-Components/SearchQuestion.jsx';
 import QuestionsList from './Q&A-Components/QuestionsList.jsx';
 
 // eslint-disable-next-line react/prop-types
@@ -42,7 +43,7 @@ function QuestionsAndAnswers({ productId }) {
   return (
     <div>
       <span className="q-a-title">QUESTIONS & ANSWERS</span>
-      <QuestionsForm
+      <SearchQuestion
         handleSearch={handleSearch}
       />
       <QuestionsList
