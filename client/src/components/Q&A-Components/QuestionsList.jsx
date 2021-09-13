@@ -12,6 +12,10 @@ const QuestionsList = ({ questions, moreQuestions }) => {
     }
   }
 
+  // if (search) {
+
+  // }
+
   if (moreQuestions) {
     return (
       <div>

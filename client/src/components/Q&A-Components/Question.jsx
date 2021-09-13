@@ -5,6 +5,8 @@ import AnswersList from './AnswersList.jsx';
 const Question = ({ question }) => {
   const [answers, setAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState(answers);
+  const [helpful, setHelpful] = useState(question.question_helpfulness);
+  const [voted, setVoted] = useState(false);
 
   const fetchAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
@@ -24,9 +26,7 @@ const Question = ({ question }) => {
   return (
     <>
       <div>
-        <span>
-          {`Q: ${question.question_body}`}
-        </span>
+        <span>{`Q: ${question.question_body}`}</span>
         <div>
           <span
             className="helpful"

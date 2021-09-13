@@ -7,6 +7,7 @@ import QuestionsList from './Q&A-Components/QuestionsList.jsx';
 function QuestionsAndAnswers({ productId }) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestions, setCurrentQuestions] = useState(questions);
+  const [search, setSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [moreQuestions, showMoreQuestions] = useState(false);
 
@@ -29,6 +30,13 @@ function QuestionsAndAnswers({ productId }) {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
+    if (searchTerm.length > 1) {
+      setSearch(true);
+      // showMoreQuestions(true);
+    } else {
+      setSearch(false);
+      // showMoreQuestions(false);
+    }
   };
 
   return (
@@ -38,6 +46,8 @@ function QuestionsAndAnswers({ productId }) {
         handleSearch={handleSearch}
       />
       <QuestionsList
+        search={search}
+        searchTerm={searchTerm}
         questions={currentQuestions}
         moreQuestions={moreQuestions}
       />
