@@ -1,11 +1,17 @@
 /* Overview: Main image carousel */
+#mainImage .carousel-inner {
+  height: 75vh;
+  width: 100%;
+}
 #mainImage .carousel-item img {
+  position: relative;
   object-fit: contain;
   object-position: top;
   overflow: hidden;
   height: 75vh;
+  z-index: 10;
 }
-.carousel-item {
+#mainImage .carousel-item {
   cursor: zoom-in;
 }
 #mainImage .carousel-indicators {
@@ -30,7 +36,7 @@
   width: 60px !important;
   height: 60px !important;
   object-fit: cover;
-  /* border: 1px solid black; */
+  opacity: 1 !important;
 }
 #mainImage .carousel-control-prev {
   left: 40px;
@@ -94,7 +100,10 @@
 }
 
 .showFullscreen .carousel-item img {
-  height: calc(100vh - 5em) !important;
+  height: calc(100vh - 80px) !important;
+}
+.showFullscreen .carousel-inner {
+  height: calc(100vh - 80px) !important;
 }
 
 .showFullscreen .carousel-item {
@@ -102,10 +111,12 @@
 }
 
 .showFullscreen .carousel-item .zoomed {
-  transform: scale(2.5);
+  cursor: zoom-out;
+  height: 100vh;
+  /* transform: scale(2.5); */
 }
 
 /* Navbar */
 .navbar {
-  height: 5em;
+  height: 80px;
 }
