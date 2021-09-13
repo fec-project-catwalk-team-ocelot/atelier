@@ -1,0 +1,7 @@
+.questions-list {
+  height: 400px;
+  width: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: auto;
+}
