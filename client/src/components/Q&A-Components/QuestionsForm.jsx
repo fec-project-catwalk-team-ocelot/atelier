@@ -30,18 +30,22 @@ const QuestionForm = (showQuestionsForm, handleQuestionForm, productId) => {
         <div className="modal-content">
 
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Ask Your Question</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Post Your Question</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
           </div>
 
           <div className="modal-body">
             <form>
               <div className="mb-3">
-                <label htmlFor="recipient-name" className="col-form-label">Recipient:</label>
+                <label htmlFor="recipient-name" className="col-form-label">Your username:</label>
                 <input type="text" className="form-control" id="recipient-name" />
               </div>
               <div className="mb-3">
-                <label htmlFor="message-text" className="col-form-label">Message:</label>
+                <label htmlFor="recipient-email" className="col-form-label">Your email:</label>
+                <input type="text" className="form-control" id="recipient-email" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="message-text" className="col-form-label">Your question:</label>
                 <textarea className="form-control" id="message-text" />
               </div>
             </form>

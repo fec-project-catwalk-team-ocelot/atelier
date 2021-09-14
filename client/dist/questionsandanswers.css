@@ -31,7 +31,7 @@
 }
 
 .more-answers-button {
-  font-size: 12px;
+  margin: .25rem .125rem;
 }
 
 .answer-list {
@@ -59,9 +59,10 @@
 
 
 .add-a-question-button {
-  font-size: 12px;
+  margin: .25rem .125rem;
 }
 
 .questions-buttons {
   font-size: 15px;
+
 }

@@ -60,7 +60,7 @@ function QuestionsAndAnswers({ productId }) {
       />
       <button
         type="button"
-        className="btn btn-secondary more-answers-button"
+        className="btn btn-primary more-answers-button"
         onClick={handleMoreQuestions}
       >
         {moreQuestions ? 'HIDE QUESTIONS' : 'MORE ANSWERED QUESTIONS'}
@@ -68,7 +68,7 @@ function QuestionsAndAnswers({ productId }) {
 
       <button
         type="button"
-        className="btn btn-secondary add-a-question-button"
+        className="btn btn-primary add-a-question-button"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         onClick={() => { setQuestionForm(true); }}
