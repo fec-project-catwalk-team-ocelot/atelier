@@ -20,7 +20,7 @@ function ProductDetailView({ productInfo, selectedStyle, productId }) {
       {/* Review snippent */}
       <div className="reviewSnippet my-3 d-flex">
         <span><StarRating productId={productId} /></span>
-        <span className="ratingLink"><a className="text-dark">Read all reviews</a></span>
+        <span className="ratingLink"><a href="#reviews" className="text-dark">Read all reviews</a></span>
       </div>
       {/*  Category */}
       <div className="text-uppercase">

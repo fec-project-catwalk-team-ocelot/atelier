@@ -45,14 +45,8 @@ function AddtoCartView({ selectedStyle }) {
   // CONDITIONAL RENDERS
   if (validSkus !== []) {
     renderDefaultSizeOption = <option value="DEFAULT">SELECT SIZE</option>;
-    // renderDefaultSizeOption = (
-    //   <button className="btn btn-outline-dark dropdown-toggle" type="button" id="sizeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    //     SELECT SIZE
-    //   </button>
-    // );
     renderSizes = _.map(validSkus, (sku) => (
       <option key={sku.id} value={sku.size}>{sku.size}</option>
-      // <li><a className="dropdown-item" href="#">{sku.size}</a></li>
     ));
   } else {
     renderDefaultSizeOption = <option value="DEFAULT" disabled>OUT OF STOCK</option>;
