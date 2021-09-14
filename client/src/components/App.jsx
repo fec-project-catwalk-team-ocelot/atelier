@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import bootstrap from 'bootstrap';
 import axios from 'axios';
 import Navbar from './Navbar.jsx';
@@ -8,26 +8,14 @@ import QuestionsAndAnswers from './QuestionsAndAnswers.jsx';
 import Reviews from './Reviews.jsx';
 
 function App() {
-  const [productId, setProductId] = useState(42370);
-  const [clickEventRecorder, setClickEventRecorder] = useState([]);
-
-  useEffect(() => {
-    // axios post request
-    console.log(clickEventRecorder);
-  }, [clickEventRecorder]);
-
+  const [productId, setProductId] = useState(42366);
   return (
     <div>
       <Navbar />
-      {/* pass setstate down to each component */}
-      <Overview productId={productId} setClickEventRecorder={setClickEventRecorder} />
-      <RelatedItems
-        productId={productId}
-        setProductId={setProductId}
-        setClickEventRecorder={setClickEventRecorder}
-      />
-      <QuestionsAndAnswers productId={productId} setClickEventRecorder={setClickEventRecorder} />
-      <Reviews productId={productId} setClickEventRecorder={setClickEventRecorder} />
+      <Overview productId={productId} />
+      <RelatedItems productId={productId} setProductId={setProductId} />
+      <QuestionsAndAnswers productId={productId} />
+      <Reviews productId={productId} />
     </div>
   );
 }
