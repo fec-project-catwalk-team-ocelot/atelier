@@ -14,14 +14,14 @@
 #mainImage .carousel-item {
   cursor: zoom-in;
 }
-#mainImage .carousel-indicators {
+#mainImage .carousel-indicators.normalView {
   position: absolute;
   width: 10%;
   margin: 0;
   padding-left: 10px;
   top: 0;
 }
-#mainImage .carousel-indicators .active {
+#mainImage .carousel-indicators.normalView .active {
   border-bottom: 5px solid black;
   padding-bottom: 5px;
 }

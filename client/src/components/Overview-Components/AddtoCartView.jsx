@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
@@ -10,13 +12,12 @@ function AddtoCartView({ selectedStyle }) {
   let renderDefaultSizeOption;
   let renderQty;
   let renderDefaultQtyOption;
-  // let renderSelectSizeMessage;
 
   // STATE DECLARATION
   const [validSkus, setValidSkus] = useState([]);
   const [selectedSize, setSelectedSize] = useState('DEFAULT');
   const [quantity, setQuantity] = useState(0);
-  // const [isSizeSelected, setIsSizeSelected] = useState(false);
+  const [cartToggle, setCartToggle] = useState(false);
 
   // LIFECYCLE METHODS
   useEffect(() => {
@@ -44,8 +45,14 @@ function AddtoCartView({ selectedStyle }) {
   // CONDITIONAL RENDERS
   if (validSkus !== []) {
     renderDefaultSizeOption = <option value="DEFAULT">SELECT SIZE</option>;
+    // renderDefaultSizeOption = (
+    //   <button className="btn btn-outline-dark dropdown-toggle" type="button" id="sizeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    //     SELECT SIZE
+    //   </button>
+    // );
     renderSizes = _.map(validSkus, (sku) => (
       <option key={sku.id} value={sku.size}>{sku.size}</option>
+      // <li><a className="dropdown-item" href="#">{sku.size}</a></li>
     ));
   } else {
     renderDefaultSizeOption = <option value="DEFAULT" disabled>OUT OF STOCK</option>;
@@ -64,14 +71,23 @@ function AddtoCartView({ selectedStyle }) {
     renderDefaultQtyOption = <option value="DEFAULT" disabled>-</option>;
   }
 
+  let selectSizeMessage = '';
+  if (selectedSize === 'DEFAULT') {
+    selectSizeMessage = 'Please select size';
+  }
+
   // CLICK EVENT HANDLERS
   function handleSizeSelect(e) {
     setSelectedSize(e.target.value);
+    const x = document.getElementById('sizeSelect');
+    x.size = 1;
   }
 
   function handleAddCart() {
     if (selectedSize === 'DEFAULT') {
-      console.log('no size selected');
+      setCartToggle(!cartToggle);
+      const x = document.getElementById('sizeSelect');
+      x.size = x.options.length;
     }
   }
 
@@ -79,11 +95,18 @@ function AddtoCartView({ selectedStyle }) {
     <div>
       {/* Select Size and Quantity */}
       <div className="row" id="sizeQtySelectors">
+        <p className={cartToggle ? 'd-block' : 'd-none'}>
+          {selectSizeMessage}
+        </p>
         <div className="col-8">
           <div className="input-group mb-3">
-            <select onChange={handleSizeSelect} className="form-select w-100 p-3 border border-dark" defaultValue="DEFAULT">
+            <select onChange={handleSizeSelect} id="sizeSelect" className="form-select w-100 p-3 border border-dark" defaultValue="DEFAULT">
+              {/* <div className="dropdown"> */}
               {renderDefaultSizeOption}
+              {/* <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1"> */}
               {renderSizes}
+              {/* </ul> */}
+              {/* </div> */}
             </select>
           </div>
         </div>
@@ -98,11 +121,6 @@ function AddtoCartView({ selectedStyle }) {
       </div>
       {/* Add to Cart and Favorite */}
       <div className="row">
-        {/* TODO:  If the default ‘Select Size’ is currently selected:
-        Clicking this button should open the size dropdown, and a message
-        should appear above the dropdown stating “Please select size”. */}
-        {/* TODO:  If both a valid size and valid quantity are selected: */}
-        {/* Clicking this button will add the product to the user’s cart. */}
         <div className={`col-10 ${validSkus === [] ? 'd-none' : ''}`}>
           <button onClick={handleAddCart} type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>

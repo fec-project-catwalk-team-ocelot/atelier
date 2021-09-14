@@ -35,7 +35,7 @@ function Overview({ productId }) {
   }, [productStyles]);
 
   return (
-    <div>
+    <>
       <div className="container-fluid mb-5 px-0">
         <div className="row me-0">
           {/* LEFT COLUMN Product image carousel */}
@@ -59,7 +59,7 @@ function Overview({ productId }) {
         {/* BOTTOM ROW Product info row */}
         <ProductFeatureView productInfo={productInfo} />
       </div>
-    </div>
+    </>
   );
 }
 

@@ -39,7 +39,7 @@ function StyleSelectorView({ productStyles, selectedStyle, setSelectedStyle }) {
   }
 
   return (
-    <div>
+    <>
       {/* Selected Style */}
       <div className="mb-2 text-uppercase">
         <span className="fw-bold">STYLE &gt; </span>
@@ -49,7 +49,7 @@ function StyleSelectorView({ productStyles, selectedStyle, setSelectedStyle }) {
       <div id="style-thumbnails" className="d-flex flex-wrap col-lg-8">
         {renderStyleThumbnails}
       </div>
-    </div>
+    </>
   );
 }
 

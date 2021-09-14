@@ -16,9 +16,8 @@ function ProductDetailView({ productInfo, selectedStyle, productId }) {
   }
 
   return (
-    <div>
+    <>
       {/* Review snippent */}
-      {/* TODO: if no reviews, should be hidden */}
       <div className="reviewSnippet my-3 d-flex">
         <span><StarRating productId={productId} /></span>
         <span className="ratingLink"><a className="text-dark">Read all reviews</a></span>
@@ -35,7 +34,7 @@ function ProductDetailView({ productInfo, selectedStyle, productId }) {
       <div className="mb-3">
         {renderPrice}
       </div>
-    </div>
+    </>
   );
 }
 export default ProductDetailView;
