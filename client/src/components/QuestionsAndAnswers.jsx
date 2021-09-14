@@ -3,11 +3,13 @@ import axios from 'axios';
 
 import SearchQuestion from './Q&A-Components/SearchQuestion.jsx';
 import QuestionsList from './Q&A-Components/QuestionsList.jsx';
+import QuestionForm from './Q&A-Components/QuestionsForm.jsx';
 
 // eslint-disable-next-line react/prop-types
 function QuestionsAndAnswers({ productId }) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestions, setCurrentQuestions] = useState(questions);
+  const [showQuestionsForm, setQuestionForm] = useState(false);
   const [search, setSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [moreQuestions, showMoreQuestions] = useState(false);
@@ -46,6 +48,10 @@ function QuestionsAndAnswers({ productId }) {
       <SearchQuestion
         handleSearch={handleSearch}
       />
+      <QuestionForm
+        showQuestionsForm={showQuestionsForm}
+        handleQuestionForm={() => { setQuestionForm(false); }}
+      />
       <QuestionsList
         search={search}
         searchTerm={searchTerm}
@@ -60,7 +66,15 @@ function QuestionsAndAnswers({ productId }) {
         {moreQuestions ? 'HIDE QUESTIONS' : 'MORE ANSWERED QUESTIONS'}
       </button>
 
-      <button type="button" className="btn btn-secondary add-a-question-button">ADD A QUESTION +</button>
+      <button
+        type="button"
+        className="btn btn-secondary add-a-question-button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        onClick={() => { setQuestionForm(true); }}
+      >
+        ADD A QUESTION +
+      </button>
     </div>
   );
 }

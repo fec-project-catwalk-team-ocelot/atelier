@@ -35,10 +35,10 @@
 }
 
 .answer-list {
-  height: 50px;
+  height: 100px;
   width: 50%;
   overflow: hidden;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .search-bar {
