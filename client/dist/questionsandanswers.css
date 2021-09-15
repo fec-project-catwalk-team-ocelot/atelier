@@ -44,11 +44,13 @@
 .search-bar {
   width: 500px;
   height: 28px;
+  margin: 1rem .125rem;
 }
 
-.add-answer:hover {
+.add-answer {
   cursor: pointer;
   font-weight: bold;
+  text-decoration: underline overline;
 }
 
 .helpful:hover {
@@ -57,7 +59,19 @@
   font-weight: bold;
 }
 
+.helpful-review{
+  font-size: .7em;
+  cursor: pointer;
+}
 
+.report{
+  font-size: .7em;
+  cursor: pointer;
+}
+
+.helpful-review-yes{
+  cursor: pointer;
+}
 .add-a-question-button {
   margin: .25rem .125rem;
 }
