@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import bootstrap from 'bootstrap';
-import axios from 'axios';
+
 import Navbar from './Navbar.jsx';
 import Overview from './Overview.jsx';
 import RelatedItems from './RelatedItems.jsx';
