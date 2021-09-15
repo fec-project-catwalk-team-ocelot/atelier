@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswersList from './AnswersList.jsx';
+import AnswerForm from './AnswerForm.jsx';
 
 const Question = ({ question }) => {
   const [answers, setAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState(answers);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [voted, setVoted] = useState(false);
+  const [showAnswerForm, setShow] = useState(false);
 
   const fetchAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
@@ -32,9 +34,6 @@ const Question = ({ question }) => {
         {
           question_helpfulness: helpful,
         },
-        // {
-        //   headers: options.headers,
-        // },
       )
         .then(() => {
 
@@ -45,6 +44,7 @@ const Question = ({ question }) => {
     }
   };
 
+
   return (
     <>
       <div className="q-entry">
@@ -52,15 +52,21 @@ const Question = ({ question }) => {
         <div>
           <span
             className="helpful"
+            className="btn btn-outline-success"
             onClick={handleHelpClick}
           >
             {voted ? `You and ${helpful} others thought this was helpful` : ` Helpful? Yes: ${helpful}`}
           </span>
-          <span>{'  |  '}</span>
+          <span className="helpful-grid">{'  |  '}</span>
           <span>Add Answer</span>
         </div>
       </div>
       <AnswersList answers={currentAnswers} />
+      {/* <AnswerForm
+        questionId={question.question_id}
+        questionBody={question.question_body}
+        handleAnswerForm={() => { setShow(false); }}
+      /> */}
     </>
   );
 };

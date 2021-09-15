@@ -8,7 +8,7 @@ const AnswersList = ({ answers }) => {
     <div>
       <ul className="answer-list">
         {answers.filter((answer, index) => (
-          index < 1
+          index < 2
         )).map((answer) => (
           <div key={answer.answer_id}>
             <Answer answer={answer} key={answer.answer_id} />

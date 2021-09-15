@@ -21,8 +21,7 @@ const QuestionForm = ({ productId }) => {
     axios.post('/api/qa/questions', data, {
       headers,
     })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         setBody('');
         setName('');
         setEmail('');
@@ -32,10 +31,9 @@ const QuestionForm = ({ productId }) => {
         console.log(err.response);
       });
   };
-  // const data = JSON.stringify({});
+
   const handerSubmitQuestion = (e) => {
     e.preventDefault();
-    console.log(data);
     postNewQuestion();
   };
 

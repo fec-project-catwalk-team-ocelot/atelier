@@ -51,8 +51,7 @@ const QuestionsList = ({ questions, moreQuestions, search, searchTerm }) => {
                 key={question.question_id}
                 question={question}
               />
-            ))
-          }
+            ))}
         </ul>
       </div>
     );
