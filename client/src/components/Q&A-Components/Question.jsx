@@ -8,7 +8,7 @@ const Question = ({ question }) => {
   const [currentAnswers, setCurrentAnswers] = useState(answers);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [voted, setVoted] = useState(false);
-  const [showAnswerForm, setShow] = useState(false);
+  const [showAnswerForm, setShowAnswerForm] = useState(false);
 
   const fetchAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
@@ -44,7 +44,6 @@ const Question = ({ question }) => {
     }
   };
 
-
   return (
     <>
       <div className="q-entry">
@@ -58,15 +57,24 @@ const Question = ({ question }) => {
             {voted ? `You and ${helpful} others thought this was helpful` : ` Helpful? Yes: ${helpful}`}
           </span>
           <span className="helpful-grid">{'  |  '}</span>
-          <span>Add Answer</span>
+          <span
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#answerModal"
+            onClick={() => { setShowAnswerForm(true); }}
+            className="btn btn-outline-success"
+          >
+            Add Answer
+          </span>
         </div>
       </div>
       <AnswersList answers={currentAnswers} />
-      {/* <AnswerForm
+      <AnswerForm
         questionId={question.question_id}
         questionBody={question.question_body}
-        handleAnswerForm={() => { setShow(false); }}
-      /> */}
+        showAnswerForm={showAnswerForm}
+        handleAnswerForm={() => { setShowAnswerForm(false); }}
+      />
     </>
   );
 };
