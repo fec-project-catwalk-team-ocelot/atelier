@@ -1,27 +1,42 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const QuestionForm = (showQuestionsForm, handleQuestionForm, productId) => {
+// eslint-disable-next-line react/prop-types
+const QuestionForm = ({ productId }) => {
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  const handerSubmitQuestion = (e) => {
-    e.preventDefault();
-    axios.post('/api/qa/questions', {
-      body,
-      name,
-      email,
-      product_id: productId,
+  const data = ({
+    body,
+    name,
+    email,
+    product_id: productId,
+  });
+
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const postNewQuestion = () => {
+    axios.post('/api/qa/questions', data, {
+      headers,
     })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         setBody('');
         setName('');
         setEmail('');
       })
       .catch((err) => {
-        Promise.reject(err);
+        console.log(err.response.data);
+        console.log(err.response);
       });
+  };
+  // const data = JSON.stringify({});
+  const handerSubmitQuestion = (e) => {
+    e.preventDefault();
+    console.log(data);
+    postNewQuestion();
   };
 
   return (
@@ -35,27 +50,46 @@ const QuestionForm = (showQuestionsForm, handleQuestionForm, productId) => {
           </div>
 
           <div className="modal-body">
-            <form>
+            <form onSubmit={handerSubmitQuestion}>
               <div className="mb-3">
                 <label htmlFor="recipient-name" className="col-form-label">Your username:</label>
-                <input type="text" className="form-control" id="recipient-name" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="recipient-name"
+                  value={name}
+                  onChange={(e) => { setName(e.target.value); }}
+                  required
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="recipient-email" className="col-form-label">Your email:</label>
-                <input type="text" className="form-control" id="recipient-email" />
+                <input
+                  type="email"
+                  className="form-control"
+                  id="recipient-email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); }}
+                  required
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="message-text" className="col-form-label">Your question:</label>
-                <textarea className="form-control" id="message-text" />
+                <textarea
+                  type="text"
+                  className="form-control"
+                  id="message-text"
+                  value={body}
+                  onChange={(e) => { setBody(e.target.value); }}
+                  required
+                />
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" className="btn btn-primary" value="Submit" aria-label="Close">Submit Question</button>
               </div>
             </form>
           </div>
-
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" onClick={handerSubmitQuestion} className="btn btn-primary">Submit Question</button>
-          </div>
-
         </div>
       </div>
     </div>

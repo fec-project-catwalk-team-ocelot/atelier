@@ -49,6 +49,7 @@ function QuestionsAndAnswers({ productId }) {
         handleSearch={handleSearch}
       />
       <QuestionForm
+        productId={productId}
         showQuestionsForm={showQuestionsForm}
         handleQuestionForm={() => { setQuestionForm(false); }}
       />
