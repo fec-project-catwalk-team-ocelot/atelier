@@ -40,7 +40,7 @@ const QuestionForm = ({ productId }) => {
   };
 
   return (
-    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
 
@@ -86,7 +86,7 @@ const QuestionForm = ({ productId }) => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn btn-primary" value="Submit" aria-label="Close">Submit Question</button>
+                <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Submit Question</button>
               </div>
             </form>
           </div>
