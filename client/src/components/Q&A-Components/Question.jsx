@@ -69,12 +69,13 @@ const Question = ({ question }) => {
           <span
             className="helpful-review"
             onClick={handleHelpClick}
-          >
-            {voted ? `You and ${helpful} others thought this was helpful` : ` Helpful? Yes: (${helpful})`}
+          >Helpful? Yes:
+            {voted ? `(${helpful})` : `(${helpful})`}
           </span>
           <small>{'  |  '}</small>
-          <span className="report"
-          onClick={handleReport}
+          <span
+            className="helpful-review"
+            onClick={handleReport}
           >
           {reported ? 'Question was Reported ' : ' Report'}
           </span>

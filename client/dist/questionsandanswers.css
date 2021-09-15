@@ -59,14 +59,16 @@
   font-weight: bold;
 }
 
-.helpful-review{
+.helpful-review:hover{
   font-size: .7em;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .report{
   font-size: .7em;
   cursor: pointer;
+  border-bottom: solid 1px black;
 }
 
 .helpful-review-yes{
