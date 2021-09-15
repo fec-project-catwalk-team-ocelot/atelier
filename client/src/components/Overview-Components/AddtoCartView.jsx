@@ -86,7 +86,7 @@ function AddtoCartView({ selectedStyle }) {
   }
 
   return (
-    <div>
+    <>
       {/* Select Size and Quantity */}
       <div className="row" id="sizeQtySelectors">
         <p className={cartToggle ? 'd-block' : 'd-none'}>
@@ -122,7 +122,7 @@ function AddtoCartView({ selectedStyle }) {
           <button type="button" className="btn btn-outline-dark w-100 p-3"><BsStar /></button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

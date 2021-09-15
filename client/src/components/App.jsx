@@ -10,13 +10,13 @@ import Reviews from './Reviews.jsx';
 function App() {
   const [productId, setProductId] = useState(42366);
   return (
-    <div>
+    <>
       <Navbar />
       <Overview productId={productId} />
       <RelatedItems productId={productId} setProductId={setProductId} />
       <QuestionsAndAnswers productId={productId} />
       <Reviews productId={productId} />
-    </div>
+    </>
   );
 }
 
