@@ -74,8 +74,9 @@ const Question = ({ question }) => {
           </span>
           <small>{'  |  '}</small>
           <span className="report"
+          onClick={handleReport}
           >
-
+          {reported ? 'Question was Reported ' : ' Report'}
           </span>
           <small>{'  |  '}</small>
           <span
