@@ -87,3 +87,16 @@
   line-height: 1.5;
   color: #198754
 }
+
+.seller {
+  font-weight: bold;
+}
+
+.Ahelp-report {
+  padding-left: 2.5%;
+  font-size: 14px;
+}
+
+.a-bullet {
+  font-weight: bold;
+}
