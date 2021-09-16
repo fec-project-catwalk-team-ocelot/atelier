@@ -25,7 +25,7 @@ function QuestionsAndAnswers({ productId }) {
 
   useEffect(() => {
     fetchQuestions();
-  }, []);
+  }, [productId]);
 
   const handleMoreQuestions = () => {
     showMoreQuestions((more) => !more);
