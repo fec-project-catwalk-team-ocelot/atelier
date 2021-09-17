@@ -57,6 +57,7 @@ const Answer = ({ answer }) => {
         {` ${new Date(answer.date).toLocaleDateString(
           undefined, { year: 'numeric', month: 'long', day: 'numeric' },
         )}`}
+        <span> </span>
         <span
           className="helpful-review"
           onClick={handleHelpClick}
