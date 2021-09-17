@@ -1,15 +1,15 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { BiFullscreen } from 'react-icons/bi';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
-import RenderMainImages from './RenderMainImages.jsx';
+
+import RenderMainImages from './LeftColumn/RenderMainImages.jsx';
+import MainThumbnails from './LeftColumn/MainThumbnails.jsx';
+import MainIndicators from './LeftColumn/MainIndicators.jsx';
 
 function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullscreenToggle }) {
   let renderMainImages;
   const thumbnailsLength = selectedStyle.photos ? selectedStyle.photos.length : 0;
+
   const [zoom, setZoom] = useState(false);
   const [thumbRange, setThumbRange] = useState([0, 6]);
 
@@ -32,18 +32,21 @@ function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullsc
   }
 
   if (selectedStyle.photos) {
-    renderMainImages = selectedStyle.photos.map((photo, idx) => (
-      <RenderMainImages
-        key={idx}
-        idx={idx}
-        photoUrl={photo.url}
-        altText={selectedStyle.name}
-        setFullscreenToggle={setFullscreenToggle}
-        fullscreenToggle={fullscreenToggle}
-        zoom={zoom}
-        setZoom={setZoom}
-      />
-    ));
+    renderMainImages = selectedStyle.photos.map((photo, idx) => {
+      const displayUrl = photo.url === null ? 'No-Image-Placeholder.svg' : photo.url;
+      return (
+        <RenderMainImages
+          key={idx}
+          idx={idx}
+          photoUrl={displayUrl}
+          altText={selectedStyle.name}
+          setFullscreenToggle={setFullscreenToggle}
+          fullscreenToggle={fullscreenToggle}
+          zoom={zoom}
+          setZoom={setZoom}
+        />
+      );
+    });
   } else {
     renderMainImages = '';
   }
@@ -110,36 +113,6 @@ function LeftColumnProductImageView({ selectedStyle, fullscreenToggle, setFullsc
         </div>
       </div>
     </div>
-  );
-}
-
-// Helper Render Functions
-
-function MainThumbnails({ photoUrl, altText, idx, display }) {
-  return (
-    <img
-      src={photoUrl}
-      data-imgthumb={idx}
-      className="d-block w-100"
-      alt={altText}
-      data-bs-target="#mainImage"
-      data-bs-slide-to={idx}
-      aria-label={`Slide ${idx + 1}`}
-      className={`my-3 ${idx === 0 ? 'active' : ''} ${display ? '' : 'd-none'}`}
-      aria-current={`${idx === 0 ? 'true' : ''}`}
-    />
-  );
-}
-
-function MainIndicators({ photoUrl, altText, idx }) {
-  return (
-    <button
-      type="button"
-      data-bs-target="#mainImage"
-      data-bs-slide-to={idx}
-      className={`my-3 ${idx === 0 ? 'active' : ''}`}
-      aria-current={`${idx === 0 ? 'true' : ''}`}
-    />
   );
 }
 

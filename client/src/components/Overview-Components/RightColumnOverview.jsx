@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import StyleSelectorView from './StyleSelectorView.jsx';
-import ProductDetailView from './ProductDetailView.jsx';
-import AddToCartView from './AddtoCartView.jsx';
+import StyleSelectorView from './RightColumn/StyleSelectorView.jsx';
+import ProductDetailView from './RightColumn/ProductDetailView.jsx';
+import AddToCartView from './RightColumn/AddtoCartView.jsx';
 
 function RightColumnOverview({
   productStyles, productInfo, selectedStyle, setSelectedStyle, productId, fullscreenToggle,
 }) {
   return (
-    <div className={`col-lg-4 ${fullscreenToggle ? 'd-none' : ''}`}>
+    <div className={`col-lg-4 px-5 ${fullscreenToggle ? 'd-none' : ''}`}>
       <ProductDetailView
         productInfo={productInfo}
         selectedStyle={selectedStyle}
@@ -20,7 +20,6 @@ function RightColumnOverview({
         setSelectedStyle={setSelectedStyle}
       />
       <AddToCartView selectedStyle={selectedStyle} />
-      {/* TODO: not on mockup, but in business doc: product overview and share on social media */}
     </div>
   );
 }

@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
 import _ from 'underscore';
 import { BsStar } from 'react-icons/bs';
@@ -115,7 +111,7 @@ function AddtoCartView({ selectedStyle }) {
           <button onClick={handleAddCart} type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>
         <div className="col-3">
-          <button type="button" className="btn btn-outline-dark w-100 p-3"><BsStar /></button>
+          <button type="button" className="btn btn-outline-dark w-100 p-3" aria-hidden="true"><BsStar /></button>
         </div>
       </div>
     </>
