@@ -6,7 +6,7 @@
 #mainImage .carousel-item img {
   position: relative;
   object-fit: contain;
-  object-position: top;
+  object-position: center;
   overflow: hidden;
   height: 75vh;
   z-index: 10;
