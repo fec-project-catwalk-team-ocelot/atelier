@@ -24,7 +24,7 @@ const Question = ({ question }) => {
 
   useEffect(() => {
     fetchAnswers();
-  }, []);
+  }, [question.question_id]);
 
   const handleHelpClick = () => {
     if (!voted) {

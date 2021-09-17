@@ -11,7 +11,7 @@ const Answer = ({ answer }) => {
       setVoted((vote) => !vote);
       setHelpful((helped) => helped + 1);
       axios.put(
-        `/api/qa/answers/${answer.id}/helpful`,
+        `/api/qa/answers/${answer.answer_id}/helpful`,
         {
           helpfulness: helpful,
         },
@@ -20,9 +20,25 @@ const Answer = ({ answer }) => {
 
         })
         .catch((res, err) => {
-          res.end('could not make answer more helpful', err);
+          Promise.reject(err);
         });
     }
+  };
+
+  const handleReport = () => {
+    setReported(true);
+    axios.put(
+      `/api/qa/answers/${answer.answer_id}/report`,
+      {
+        reported: true,
+      },
+    )
+      .then(() => {
+
+      })
+      .catch((err) => {
+        Promise.reject(err);
+      });
   };
 
   return (
@@ -41,6 +57,19 @@ const Answer = ({ answer }) => {
         {` ${new Date(answer.date).toLocaleDateString(
           undefined, { year: 'numeric', month: 'long', day: 'numeric' },
         )}`}
+        <span
+          className="helpful-review"
+          onClick={handleHelpClick}
+          >Helpful? Yes:
+          {voted ? `(${helpful})` : `(${helpful})`}
+        </span>
+        <small>{'  |  '}</small>
+        <span
+          className="helpful-review"
+          onClick={handleReport}
+          >
+          {reported ? 'Answer was Reported' : 'Report'}
+        </span>
       </div>
     </div>
   );

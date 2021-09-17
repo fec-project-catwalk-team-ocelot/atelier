@@ -49,11 +49,12 @@ const AnswerForm = ({ questionId, questionBody }) => {
           <div className="modal-body">
             <form onSubmit={handerSubmitAnswer}>
               <div className="mb-3">
-                <label htmlFor="recipient-name" className="col-form-label">Your username:</label>
+                <label htmlFor="recipient-name" className="col-form-label">What is your nickname?</label>
                 <input
                   type="text"
                   className="form-control"
                   id="recipient-name"
+                  placeholder="Example: jack543!"
                   value={name}
                   onChange={(e) => { setName(e.target.value); }}
                   required
@@ -65,6 +66,7 @@ const AnswerForm = ({ questionId, questionBody }) => {
                   type="email"
                   className="form-control"
                   id="recipient-email"
+                  placeholder="Example: jack@email.com"
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); }}
                   required
