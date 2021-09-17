@@ -21,6 +21,10 @@ const PORT = 3000;
 app.use('/css', express.static(path.join(BOOTSTRAPCSS_DIR)));
 app.use('/js', express.static(path.join(BOOTSTRAPJS_DIR)));
 
+app.get('/test', (req, res) => {
+  res.json({ message: 'pass!' });
+});
+
 app.use('/api/*', (req, res) => {
   const { body, method, originalUrl } = req;
   const axiosConfig = {
@@ -43,5 +47,7 @@ app.use('/api/*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log('App is listening on http://localhost:3000');
+  console.log(`App is listening on http://localhost:${PORT}`);
 });
+
+module.exports = app;

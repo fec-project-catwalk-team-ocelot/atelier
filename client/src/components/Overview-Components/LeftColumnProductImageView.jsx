@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BiFullscreen } from 'react-icons/bi';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
+
 import RenderMainImages from './LeftColumn/RenderMainImages.jsx';
 import MainThumbnails from './LeftColumn/MainThumbnails.jsx';
 import MainIndicators from './LeftColumn/MainIndicators.jsx';
