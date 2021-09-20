@@ -1,5 +1,5 @@
 .questions-list {
-  height: 300px;
+  height: 350px;
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;
@@ -35,10 +35,10 @@
 }
 
 .answer-list {
-  height: 100px;
+  height: 150px;
   width: 50%;
   overflow: hidden;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 .search-bar {
