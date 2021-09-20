@@ -3,6 +3,12 @@ import Answer from './Answer.jsx';
 
 const AnswersList = ({ answers }) => {
   answers.sort((a, b) => b.helpfulness - a.helpfulness);
+  const [moreAnswers, showMoreAnswers] = useState(false);
+
+  const handleMoreAnswers = () => {
+    showMoreAnswers((more) => !more);
+  };
+
 
   return (
     <div>
@@ -15,6 +21,12 @@ const AnswersList = ({ answers }) => {
           </div>
         ))}
       </ul>
+      <button
+        className="buttons more-answers-button"
+        onClick={handleMoreAnswers}
+      >
+        LOAD MORE ANSWERS
+      </button>
     </div>
   );
 };

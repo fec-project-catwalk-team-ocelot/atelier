@@ -107,6 +107,10 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.more-answers-button {
+  font-size: 12px;
+}
 /* .search-form {
   position: relative;
   display: flex;
