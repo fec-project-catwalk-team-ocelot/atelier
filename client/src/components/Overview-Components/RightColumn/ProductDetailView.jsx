@@ -22,7 +22,7 @@ function ProductDetailView({ productInfo, selectedStyle }) {
       <div className="reviewSnippet my-3 d-flex">
         <span>
           <div className="star-rating">
-            <StarRatings starSpacing="2px" rating={Number(averageRating)} starRatedColor="rgb(0,0,0)" numberOfStars={5} starDimension="1em" />
+            <StarRatings starSpacing="2px" rating={Number(averageRating) || 0} starRatedColor="rgb(0,0,0)" numberOfStars={5} starDimension="1em" />
           </div>
         </span>
         <span className="ratingLink"><a href="#reviews" className="text-dark">Read all reviews</a></span>
