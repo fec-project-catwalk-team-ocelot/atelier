@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import axios from 'axios';
 import { act } from 'react-dom/test-utils';
+=======
+// import App from '../client/src/components/App.jsx';
+import app from '../server/app.js';
+>>>>>>> 14db355 (Added end-to-end test for adding product to cart)
 import Reviews from '../client/src/components/Reviews.jsx';
 import ValidationMessage from '../client/src/components/Review-Components/ReviewForm/ValidationMessage.jsx';
 import ReviewListEntry from '../client/src/components/Review-Components/ReviewListEntry.jsx';
