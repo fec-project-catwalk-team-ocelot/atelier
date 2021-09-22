@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import _ from 'underscore';
 import { FaCheckCircle } from 'react-icons/fa';
+import { ProductContext } from '../../ProductContext.jsx';
 
 function StyleSelectorView({ productStyles, selectedStyle, setSelectedStyle }) {
   let renderStyleThumbnails;
@@ -63,9 +64,15 @@ function StyleThumbnails(props) {
   } = props;
 
   const displayUrl = photoUrl === null ? 'No-Image-Placeholder.svg' : photoUrl;
+  const { setRecordInteraction } = useContext(ProductContext);
 
-  function handleStyleChange() {
+  function handleStyleChange(e) {
     setSelectedStyleId(styleId);
+    setRecordInteraction({
+      element: `${e.target}`,
+      widget: 'Overview',
+      time: new Date(),
+    });
   }
 
   return (
