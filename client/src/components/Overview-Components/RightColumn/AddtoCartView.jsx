@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import _ from 'underscore';
-import { BsStar } from 'react-icons/bs';
 import { ProductContext } from '../../ProductContext.jsx';
 
 function AddtoCartView({ selectedStyle }) {
@@ -123,7 +122,9 @@ function AddtoCartView({ selectedStyle }) {
           <button id="addToCart" onClick={handleAddCart} type="button" className="btn btn-outline-dark w-100 p-3">Add to Cart</button>
         </div>
         <div className="col-3">
-          <button type="button" className="btn btn-outline-dark w-100 p-3" aria-hidden="true"><BsStar /></button>
+          <button type="button" className="btn btn-outline-dark w-100 p-3" aria-hidden="true">
+            <img alt="bsStar" src="assets/bsStar.svg" />
+          </button>
         </div>
       </div>
     </>

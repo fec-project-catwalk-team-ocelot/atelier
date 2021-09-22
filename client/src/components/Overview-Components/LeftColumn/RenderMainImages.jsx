@@ -43,8 +43,10 @@ function RenderMainImages(props) {
     const winX = e.target.offsetWidth;
     const winY = e.target.offsetHeight;
     const picX = e.target.naturalWidth * 5;
-    const picY = e.target.naturalHeight * 5;
-
+    let picY = e.target.naturalHeight * 4;
+    if (e.target.naturalHeight > e.target.naturalWidth) {
+      picY = e.target.naturalHeight * 7;
+    }
     const renderY = ((posY / winY) - 0.5) * (picY / 2);
     const renderX = ((posX / winX) - 0.5) * (picX / 2);
     e.target.style.transform = `translate(${renderX}px, ${renderY}px) scale(2.5)`;
