@@ -10,7 +10,7 @@ const MainImageInner = styled.div`
   height: 75vh;
   width: 100%;
   ${(props) => props.showFullscreen && css`
-    height: calc(100vh - 80px) !important;
+    height: calc(100vh - 160px) !important;
   `}
 `;
 const CarouselIndicators = styled.div`

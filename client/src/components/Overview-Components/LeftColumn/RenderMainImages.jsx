@@ -17,7 +17,7 @@ const CarouselImage = styled.img`
   z-index: 10;
   &.fullscreen {
     cursor: crosshair;
-    height: calc(100vh - 80px) !important;
+    height: calc(100vh - 160px) !important;
   }
 `;
 
@@ -39,7 +39,7 @@ function RenderMainImages(props) {
 
   function getMouseLocation(e) {
     const posX = e.clientX;
-    const posY = e.clientY - 80;
+    const posY = e.clientY - 160;
     const winX = e.target.offsetWidth;
     const winY = e.target.offsetHeight;
     const picX = e.target.naturalWidth * 5;
